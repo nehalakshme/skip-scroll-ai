@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Terms & Conditions Summarizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f3f3f3;
+    }
+    textarea, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+    }
+    #output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 AI Terms & Conditions Summarizer</h1>
+  <textarea id="terms" rows="10" placeholder="Paste Terms & Conditions here..."></textarea>
+  <button onclick="summarize()">Summarize</button>
+  <div id="output"></div>
+
+  <script>
+    async function summarize() {
+      const text = document.getElementById('terms').value;
+      document.getElementById('output').innerText = "Summarizing...";
+      const res = await fetch('/api/summarize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
+      const data = await res.json();
+      document.getElementById('output').innerText = data.summary || data.error;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  padding: 2rem;
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: auto;
+}
+
+textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.summary-box {
+  margin-top: 2rem;
+  background: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: left;
+}
